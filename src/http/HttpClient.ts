@@ -1,18 +1,8 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { validateAgainstSchema } from 'src/schema/validate'
+import { ApiHttpClient, HttpResponse } from 'src/index'
 
-type HttpResponse = Promise<any> & {
-    expectStatus: (status: number) => HttpResponse
-    expectType: (type: any) => HttpResponse
-    data: () => Promise<any>
-}
 
-type HttpClient = {
-    get: (url: string, opts?: any) => HttpResponse
-    post: (url: string, data: any) => HttpResponse
-    put: (url: string, data: any) => HttpResponse
-    delete: (url: string) => HttpResponse
-}
 
 type PromiseExpect = (res: AxiosResponse) => void
 
@@ -75,7 +65,7 @@ type HttpClientOpts = {
     interceptor?: (req: AxiosRequestConfig) => AxiosRequestConfig
 }
 
-const HttpClient = (opts: HttpClientOpts): HttpClient => {
+const HttpClient = (opts: HttpClientOpts): ApiHttpClient => {
     const ax = axios.create({
         baseURL: opts.baseUrl,
         validateStatus: () => true

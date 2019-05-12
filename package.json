@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test:ci": "jest --runInBand --logHeapUsage",
     "buildr": "rollup -c",
     "build:rollup": "rollup -c",
+    "format": "prettier \"**/*.{js,ts,tsx}\" --write",
     "build": "rm -rf build && babel --extensions '.ts,.js' src -d build src",
-    "format": "prettier \"**/*.{js,ts,tsx}\" --write"
+    "pub": "npm publish --access public",
+    "test": "jest src",
+    "test:ci": "jest --runInBand --logHeapUsage",
+    "get-version": "echo $npm_package_version"
   },
   "repository": {
     "type": "git"

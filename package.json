@@ -24,10 +24,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
-    "invariant": "^2.2.4",
-    "joi": "^14.3.0",
-    "parcel-bundler": "^1.12.3",
-    "ramda": "^0.26.1"
+    "joi": "^14.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

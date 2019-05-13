@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:rollup": "rollup -c",
+    "build": "rollup -c",
     "format": "prettier \"**/*.{js,ts,tsx}\" --write",
-    "build": "parcel build ./src/index.ts --out-dir ./lib",
     "pub": "npm publish --access public",
     "test": "jest src",
     "test:lib": "jest e2e",

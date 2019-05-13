@@ -4,13 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "buildr": "rollup -c",
     "build:rollup": "rollup -c",
     "format": "prettier \"**/*.{js,ts,tsx}\" --write",
-    "build": "rm -rf build && babel --extensions '.ts,.js' src -d build src",
+    "build": "parcel build ./src/index.ts --out-dir ./lib",
     "pub": "npm publish --access public",
     "test": "jest src",
-    "test:ci": "jest --runInBand --logHeapUsage",
+    "test:lib": "jest e2e",
     "get-version": "echo $npm_package_version"
   },
   "repository": {
@@ -18,19 +17,19 @@
   },
   "files": [
     "build",
-    "types.d.ts"
+    "src/types.d.ts"
   ],
-  "types": "types.d.ts",
+  "types": "src/types.d.ts",
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
     "invariant": "^2.2.4",
     "joi": "^14.3.0",
+    "parcel-bundler": "^1.12.3",
     "ramda": "^0.26.1"
   },
   "devDependencies": {
-    "prettier": "^1.16.4",
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.3",
     "@babel/node": "^7.2.2",
@@ -43,16 +42,21 @@
     "@types/jest": "^24.0.11",
     "@types/node": "^11.12.2",
     "@types/ramda": "^0.26.8",
+    "babel-jest": "^24.5.0",
     "babel-plugin-module-resolver": "^3.1.1",
+    "jest": "^24.5.0",
+    "jest-expect-message": "^1.0.2",
+    "jest-extended": "^0.11.1",
+    "prettier": "^1.16.4",
     "rollup": "^1.11.3",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-includepaths": "^0.2.3",
     "rollup-plugin-node-resolve": "^4.2.4",
     "ts-jest": "^24.0.1",
-    "typescript": "^3.4.1",
-    "jest": "^24.5.0",
-    "babel-jest": "^24.5.0",
-    "jest-expect-message": "^1.0.2",
-    "jest-extended": "^0.11.1"
+    "typescript": "^3.4.1"
+  },
+  "alias": {
+    "src": "/src"
   }
 }

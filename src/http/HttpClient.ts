@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { validateAgainstSchema } from 'src/schema/validate'
-import { ApiHttpClient, HttpResponse } from 'src/index'
+import { ApiHttpClient, HttpResponse } from 'src/types'
 
 
 

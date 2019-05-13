@@ -19,6 +19,7 @@
     "baseUrl": "./"
   },
   "include": [
+    "e2e/**/*.ts",
     "src/**/*.ts",
     "src/**/*.js"
   ]
